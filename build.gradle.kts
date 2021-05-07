@@ -3,7 +3,9 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.32"
+    val kotlinVersion = "1.4.32"
+    kotlin("jvm") version kotlinVersion
+    kotlin("kapt") version kotlinVersion
     id("org.jetbrains.compose") version "0.4.0-build188"
 }
 
@@ -16,11 +18,28 @@ repositories {
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
 }
 
+val daggerVersion by extra("2.31.2")
+
 dependencies {
     testImplementation(kotlin("test-junit5"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
     implementation(compose.desktop.currentOs)
+
+    // Module dependencies
+    implementation(project(":data"))
+
+    // Dagger : A fast dependency injector for Android and Java.
+    kapt("com.google.dagger:dagger-compiler:$daggerVersion")
+    kaptTest("com.google.dagger:dagger-compiler:$daggerVersion")
+
+    // Cyclone : https://github.com/theapache64/cyclone
+    implementation("com.theapache64:cyclone:1.0.0-alpha01")
+
+    // Decompose : Decompose
+    val decomposeVersion = "0.2.1"
+    implementation("com.arkivanov.decompose:decompose-jvm:$decomposeVersion")
+    implementation("com.arkivanov.decompose:extensions-compose-jetbrains-jvm:$decomposeVersion")
 }
 
 tasks.test {

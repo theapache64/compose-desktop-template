@@ -6,4 +6,4 @@ pluginManagement {
     
 }
 rootProject.name = "compose-desktop-template"
-
+include("data")
