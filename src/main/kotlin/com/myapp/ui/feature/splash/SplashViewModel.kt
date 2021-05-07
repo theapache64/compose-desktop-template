@@ -1,5 +1,6 @@
 package com.myapp.ui.feature.splash
 
+import com.myapp.data.repo.MyRepo
 import com.myapp.util.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -9,7 +10,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SplashViewModel @Inject constructor(
-    // Inject your repos here
+    private val myRepo: MyRepo
+    // Inject your repos here...
 ) : ViewModel() {
 
     private val _isSplashFinished = MutableStateFlow(false)
