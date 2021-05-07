@@ -10,7 +10,7 @@ import javax.inject.Inject
 class SplashScreenComponent(
     appComponent: AppComponent,
     private val componentContext: ComponentContext,
-    private val onSyncFinished: () -> Unit,
+    private val onSplashFinished: () -> Unit,
 ) : Component, ComponentContext by componentContext {
 
     @Inject
@@ -29,10 +29,10 @@ class SplashScreenComponent(
             splashViewModel.init(scope)
         }
 
-        val isSyncFinished by splashViewModel.isSplashFinished.collectAsState()
+        val isSplashFinished by splashViewModel.isSplashFinished.collectAsState()
 
-        if (isSyncFinished) {
-            onSyncFinished()
+        if (isSplashFinished) {
+            onSplashFinished()
         }
 
         SplashScreen(

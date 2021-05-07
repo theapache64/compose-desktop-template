@@ -22,7 +22,7 @@ val DarkTheme = darkColors(
 
 @Composable
 fun MyAppTheme(
-    isDark: Boolean = true, // should be managed manually using persistence
+    isDark: Boolean = true, // TODO: If you want to support both light theme and dark theme.
     content: @Composable (ColumnScope) -> Unit,
 ) {
     MaterialTheme(

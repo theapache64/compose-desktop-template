@@ -46,7 +46,7 @@ class NavHostComponent(
             is Config.Splash -> SplashScreenComponent(
                 appComponent = appComponent,
                 componentContext = componentContext,
-                onSyncFinished = ::onSplashSyncFinished,
+                onSplashFinished = ::onSplashFinished,
             )
             Config.Main -> MainScreenComponent(
                 appComponent = appComponent,
@@ -68,7 +68,7 @@ class NavHostComponent(
     /**
      * Invoked when splash finish data sync
      */
-    private fun onSplashSyncFinished() {
+    private fun onSplashFinished() {
         router.replaceCurrent(Config.Main)
     }
 }
