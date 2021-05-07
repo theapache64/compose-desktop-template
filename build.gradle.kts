@@ -7,7 +7,7 @@ plugins {
     id("org.jetbrains.compose") version "0.4.0-build188"
 }
 
-group = "com.theapache64"
+group = "com.myapp"
 version = "1.0.0"
 
 repositories {
@@ -33,11 +33,26 @@ tasks.withType<KotlinCompile>() {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "com.myapp.MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "compose-desktop-template"
+            packageName = "myapp"
             packageVersion = "1.0.0"
+
+            val iconsRoot = project.file("src/main/resources/drawables")
+
+            linux {
+                iconFile.set(iconsRoot.resolve("launcher_icons/linux.png"))
+            }
+
+            windows {
+                iconFile.set(iconsRoot.resolve("launcher_icons/windows.ico"))
+            }
+
+            macOS {
+                iconFile.set(iconsRoot.resolve("launcher_icons/macos.icns"))
+            }
+
         }
     }
 }
