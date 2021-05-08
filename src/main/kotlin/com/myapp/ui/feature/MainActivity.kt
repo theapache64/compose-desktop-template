@@ -11,7 +11,9 @@ import java.awt.image.BufferedImage
 import javax.imageio.ImageIO
 import androidx.compose.desktop.Window as setContent
 
-
+/**
+ * The activity who will be hosting all screens in this app
+ */
 class MainActivity : Activity() {
     companion object {
         fun getStartIntent(): Intent {
@@ -27,7 +29,6 @@ class MainActivity : Activity() {
         setContent(
             title = "${App.appArgs.appName} (${App.appArgs.version})",
             icon = getAppIcon(),
-            undecorated = App.CUSTOM_TOOLBAR,
             size = IntSize(1024, 600),
         ) {
             MyAppTheme {
@@ -46,7 +47,7 @@ class MainActivity : Activity() {
 
         // Retrieving image
         val resourceFile = MainActivity::class.java.classLoader.getResourceAsStream(
-            "drawables/launcher_icons/linux.png"
+            "drawables/launcher_icons/system.png" // We need a png
         )
         val imageInput = ImageIO.read(resourceFile)
 

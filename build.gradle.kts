@@ -15,15 +15,13 @@ version = "1.0.0"
 repositories {
     jcenter()
     mavenCentral()
+    maven { url = uri("https://jitpack.io") }
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
 }
 
 val daggerVersion by extra("2.31.2")
 
 dependencies {
-    testImplementation(kotlin("test-junit5"))
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
     implementation(compose.desktop.currentOs)
 
     // Module dependencies
@@ -40,6 +38,30 @@ dependencies {
     val decomposeVersion = "0.2.1"
     implementation("com.arkivanov.decompose:decompose-jvm:$decomposeVersion")
     implementation("com.arkivanov.decompose:extensions-compose-jetbrains-jvm:$decomposeVersion")
+
+
+    /**
+     * Testing Dependencies
+     */
+    testImplementation("org.mockito:mockito-inline:3.7.7")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
+
+    // DaggerMock
+    testImplementation("com.github.fabioCollini.daggermock:daggermock:0.8.5")
+    testImplementation("com.github.fabioCollini.daggermock:daggermock-kotlin:0.8.5")
+
+    // Mockito Core : Mockito mock objects library core API and implementation
+    testImplementation("org.mockito:mockito-core:3.7.7")
+
+    // Expekt : An assertion library for Kotlin
+    testImplementation("com.github.theapache64:expekt:1.0.0")
+
+    // JUnit
+    testImplementation("org.junit.jupiter:junit-jupiter:5.4.2")
+    testImplementation(kotlin("test-junit"))
+
+    // Kotlinx Coroutines Test : Coroutines support libraries for Kotlin
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3")
 }
 
 tasks.test {

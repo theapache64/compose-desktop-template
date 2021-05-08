@@ -22,8 +22,8 @@ val DarkTheme = darkColors(
 
 @Composable
 fun MyAppTheme(
-    isDark: Boolean = true, // TODO: If you want to support both light theme and dark theme.
-    content: @Composable (ColumnScope) -> Unit,
+    isDark: Boolean = true, // TODO: If you want to support both light theme and dark theme, you'll need to implement it manually.
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     MaterialTheme(
         colors = if (isDark) DarkTheme else LightTheme,
@@ -31,7 +31,7 @@ fun MyAppTheme(
     ) {
         Surface {
             Column {
-                content(this)
+                content()
             }
         }
     }

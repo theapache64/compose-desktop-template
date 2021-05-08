@@ -9,12 +9,10 @@ import com.toxicbakery.logging.Seedling
 
 
 class App(
-    appArgs: AppArgs
+    appArgs: AppArgs,
 ) : Application() {
 
     companion object {
-        // GLOBAL CONFIGS
-        const val CUSTOM_TOOLBAR = false // TODO: Implement a custom toolbar
         lateinit var appArgs: AppArgs
     }
 
@@ -38,9 +36,9 @@ fun main() {
     // Parsing application arguments
 
     val appArgs = AppArgs(
-        appName = "My App",
-        version = "v1.0.0",
-        versionCode = 100
+        appName = "My App", // To show on title bar
+        version = "v1.0.0", // To show on title inside brackets
+        versionCode = 100 // To compare with latest version code (in case if you want to prompt update)
     )
 
     // Passing args
