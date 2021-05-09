@@ -21,7 +21,7 @@
 - Navigation (Decompose)
 - Launcher Icons (for all platforms)
 - A separate data module
-- Testing
+- Testing (both unit tests and UI tests)
 - Theme
 - Logging
 - Font (GoogleSans)

@@ -15,6 +15,7 @@ version = "1.0.0"
 repositories {
     jcenter()
     mavenCentral()
+    google()
     maven { url = uri("https://jitpack.io") }
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
 }
@@ -35,7 +36,7 @@ dependencies {
     implementation("com.theapache64:cyclone:1.0.0-alpha01")
 
     // Decompose : Decompose
-    val decomposeVersion = "0.2.1"
+    val decomposeVersion = "0.2.4"
     implementation("com.arkivanov.decompose:decompose-jvm:$decomposeVersion")
     implementation("com.arkivanov.decompose:extensions-compose-jetbrains-jvm:$decomposeVersion")
 
@@ -57,16 +58,18 @@ dependencies {
     testImplementation("com.github.theapache64:expekt:1.0.0")
 
     // JUnit
-    testImplementation("org.junit.jupiter:junit-jupiter:5.4.2")
-    testImplementation(kotlin("test-junit"))
 
     // Kotlinx Coroutines Test : Coroutines support libraries for Kotlin
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3")
+    testImplementation(compose("org.jetbrains.compose.ui:ui-test-junit4"))
+
+    // JUnit : JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
+    implementation("junit:junit:4.13.2")
 }
 
-tasks.test {
+/*tasks.test {
     useJUnitPlatform()
-}
+}*/
 
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "11"
