@@ -2,7 +2,7 @@ package com.myapp.util
 
 import kotlinx.coroutines.CoroutineScope
 
-abstract class ViewModel  {
+abstract class ViewModel {
 
     protected lateinit var viewModelScope: CoroutineScope
 

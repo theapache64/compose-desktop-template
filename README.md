@@ -29,13 +29,12 @@
 ## ⌨️ Usage
 
 1. Click `Use this template` and create your repo
-   
+
    ![](https://i.imgur.com/vJ8OCIb.png)
 
 1. Clone your repo and open it in an IDE
-1. Replace all `myapp` and `My App` instances with your app name.
-   For this, you can use `Control + Shift + R` for the find and replace (IntelliJ) 
-
+1. Replace all `myapp` and `My App` instances with your app name. For this, you can use `Control + Shift + R` for the
+   find and replace (IntelliJ)
 
 ## ✍️ Author
 
@@ -71,7 +70,6 @@ Give a ⭐️ if this project helped you!
 <a href="https://www.buymeacoffee.com/theapache64" target="_blank">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="160">
 </a>
-
 
 ## 📝 License
 

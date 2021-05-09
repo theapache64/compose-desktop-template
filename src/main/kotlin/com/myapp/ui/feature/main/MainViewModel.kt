@@ -11,10 +11,14 @@ class MainViewModel @Inject constructor(
     private val myRepo: MyRepo,
     // Inject your repos here...
 ) : ViewModel() {
-    private val _welcomeText = MutableStateFlow("Hello World!")
+    companion object {
+        const val INIT_WELCOME_MSG = "Hello World!"
+    }
+
+    private val _welcomeText = MutableStateFlow(INIT_WELCOME_MSG)
     val welcomeText: StateFlow<String> = _welcomeText
 
     fun onClickMeClicked() {
-        _welcomeText.value = "Hello Desktop!"
+        _welcomeText.value = myRepo.getClickedWelcomeText()
     }
 }
