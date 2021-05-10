@@ -1,4 +1,4 @@
-package com.myapp.ui.theme
+package com.myapp.ui.value
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope

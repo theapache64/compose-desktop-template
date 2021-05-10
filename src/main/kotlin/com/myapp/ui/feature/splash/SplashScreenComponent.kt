@@ -4,7 +4,6 @@ import androidx.compose.runtime.*
 import com.arkivanov.decompose.ComponentContext
 import com.myapp.di.AppComponent
 import com.myapp.ui.navigation.Component
-import com.toxicbakery.logging.Arbor
 import javax.inject.Inject
 
 class SplashScreenComponent(
@@ -25,7 +24,6 @@ class SplashScreenComponent(
 
         val scope = rememberCoroutineScope()
         LaunchedEffect(splashViewModel) {
-            Arbor.d("Syncing data...")
             splashViewModel.init(scope)
         }
 

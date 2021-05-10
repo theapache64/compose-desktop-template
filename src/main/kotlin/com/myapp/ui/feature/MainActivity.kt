@@ -4,7 +4,7 @@ import androidx.compose.ui.unit.IntSize
 import com.arkivanov.decompose.extensions.compose.jetbrains.rememberRootComponent
 import com.myapp.App
 import com.myapp.ui.navigation.NavHostComponent
-import com.myapp.ui.theme.MyAppTheme
+import com.myapp.ui.value.MyAppTheme
 import com.theapache64.cyclone.core.Activity
 import com.theapache64.cyclone.core.Intent
 import java.awt.image.BufferedImage

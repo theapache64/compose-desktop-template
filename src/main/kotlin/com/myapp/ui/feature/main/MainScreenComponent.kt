@@ -24,7 +24,6 @@ class MainScreenComponent(
     override fun render() {
         val scope = rememberCoroutineScope()
         LaunchedEffect(viewModel) {
-            Arbor.d("Syncing data...")
             viewModel.init(scope)
         }
 

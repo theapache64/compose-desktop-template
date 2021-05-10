@@ -10,6 +10,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.myapp.ui.value.R
+
 
 @Composable
 fun MainScreen(
@@ -38,7 +40,7 @@ fun MainScreen(
                     viewModel.onClickMeClicked()
                 }
             ) {
-                Text(text = "Click Me")
+                Text(text = R.string.ACTION_MAIN_CLICK_ME)
             }
         }
     }

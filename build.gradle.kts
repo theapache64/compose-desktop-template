@@ -64,7 +64,7 @@ dependencies {
     testImplementation(compose("org.jetbrains.compose.ui:ui-test-junit4"))
 
     // JUnit : JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
-    implementation("junit:junit:4.13.2")
+    testImplementation(kotlin("test-junit5"))
 }
 
 /*tasks.test {

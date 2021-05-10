@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    // Inject your repos here
     private val myRepo: MyRepo,
     // Inject your repos here...
 ) : ViewModel() {

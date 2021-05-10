@@ -24,6 +24,8 @@ class App(
         super.onCreate()
         Arbor.sow(Seedling())
 
+        Arbor.d("Starting app...")
+
         val splashIntent = MainActivity.getStartIntent()
         startActivity(splashIntent)
     }
