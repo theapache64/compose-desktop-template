@@ -46,6 +46,8 @@
 Enter project name : 
 ```
 
+Learn more [here](https://github.com/theapache64/create-compose-desktop-app)
+
 ## ✍️ Author
 
 👤 **theapache64**
