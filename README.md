@@ -26,7 +26,7 @@
 - Logging
 - Font (GoogleSans)
 
-## ⌨️ Usage
+## ⌨️ Use this template
 
 1. Click `Use this template` and create your repo
 
@@ -35,6 +35,16 @@
 1. Clone your repo and open it in an IDE
 1. Replace all `myapp` and `My App` instances with your app name. For this, you can use `Control + Shift + R` for the
    find and replace (IntelliJ)
+
+## OR
+
+## ⌨️ Use the CLI
+
+```shell
+~$ sudo npm install -g create-compose-desktop-app
+~$ create-compose-desktop-app
+Enter project name : 
+```
 
 ## ✍️ Author
 
