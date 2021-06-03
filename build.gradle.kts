@@ -3,10 +3,10 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.4.32"
+    val kotlinVersion = "1.5.10"
     kotlin("jvm") version kotlinVersion
     kotlin("kapt") version kotlinVersion
-    id("org.jetbrains.compose") version "0.4.0-build188"
+    id("org.jetbrains.compose") version "0.4.0"
 }
 
 group = "com.myapp"

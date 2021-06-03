@@ -1,6 +1,7 @@
 package com.myapp.ui.feature
 
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.window.Window
 import com.arkivanov.decompose.extensions.compose.jetbrains.rememberRootComponent
 import com.myapp.App
 import com.myapp.ui.navigation.NavHostComponent

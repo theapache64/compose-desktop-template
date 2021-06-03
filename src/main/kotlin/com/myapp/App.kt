@@ -35,7 +35,6 @@ class App(
  * The magic begins here
  */
 fun main() {
-    // Parsing application arguments
 
     val appArgs = AppArgs(
         appName = "My App", // To show on title bar
@@ -43,6 +42,5 @@ fun main() {
         versionCode = 100 // To compare with latest version code (in case if you want to prompt update)
     )
 
-    // Passing args
     App(appArgs).onCreate()
 }
