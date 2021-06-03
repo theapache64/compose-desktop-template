@@ -20,7 +20,7 @@ repositories {
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
 }
 
-val daggerVersion by extra("2.31.2")
+val daggerVersion by extra("2.36")
 
 dependencies {
     implementation(compose.desktop.currentOs)
@@ -36,7 +36,7 @@ dependencies {
     implementation("com.theapache64:cyclone:1.0.0-alpha01")
 
     // Decompose : Decompose
-    val decomposeVersion = "0.2.4"
+    val decomposeVersion = "0.2.5"
     implementation("com.arkivanov.decompose:decompose-jvm:$decomposeVersion")
     implementation("com.arkivanov.decompose:extensions-compose-jetbrains-jvm:$decomposeVersion")
 
