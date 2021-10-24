@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.imageFromResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -19,7 +19,7 @@ fun SplashScreen(
         contentAlignment = Alignment.Center
     ) {
         Image(
-            bitmap = imageFromResource("drawables/logo.png"),
+            painter = painterResource("drawables/logo.png"),
             modifier = Modifier.size(100.dp),
             contentDescription = "Logo"
         )
