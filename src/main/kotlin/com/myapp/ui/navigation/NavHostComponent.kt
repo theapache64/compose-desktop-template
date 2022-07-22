@@ -2,11 +2,15 @@ package com.myapp.ui.navigation
 
 import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.extensions.compose.jetbrains.Children
-import com.arkivanov.decompose.extensions.compose.jetbrains.animation.child.crossfadeScale
-import com.arkivanov.decompose.replaceCurrent
-import com.arkivanov.decompose.router
-import com.arkivanov.decompose.statekeeper.Parcelable
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
+import com.arkivanov.decompose.router.stack.StackNavigation
+import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.replaceCurrent
+import com.arkivanov.essenty.parcelable.Parcelable
 import com.myapp.di.AppComponent
 import com.myapp.di.DaggerAppComponent
 import com.myapp.ui.feature.main.MainScreenComponent
@@ -17,7 +21,7 @@ import com.myapp.ui.feature.splash.SplashScreenComponent
  */
 class NavHostComponent(
     private val componentContext: ComponentContext,
-) : Component, ComponentContext by componentContext {
+) : ComponentContext by componentContext {
 
     /**
      * Available screensSelectApp
@@ -31,9 +35,15 @@ class NavHostComponent(
         .create()
 
     /**
-     * Router configuration
+     * Navigation configuration
      */
-    private val router = router<Config, Component>(
+    private val navigation = StackNavigation<Config>()
+
+    /**
+     * Stack configuration
+     */
+    private val stack = childStack(
+        source = navigation,
         initialConfiguration = Config.Splash,
         childFactory = ::createScreenComponent
     )
@@ -48,7 +58,7 @@ class NavHostComponent(
                 componentContext = componentContext,
                 onSplashFinished = ::onSplashFinished,
             )
-            Config.Main -> MainScreenComponent(
+            is Config.Main -> MainScreenComponent(
                 appComponent = appComponent,
                 componentContext = componentContext
             )
@@ -56,10 +66,10 @@ class NavHostComponent(
     }
 
     @Composable
-    override fun render() {
+    operator fun invoke() {
         Children(
-            routerState = router.state,
-            animation = crossfadeScale()
+            stack = stack,
+            animation = stackAnimation(fade() + scale())
         ) { child ->
             child.instance.render()
         }
@@ -69,6 +79,6 @@ class NavHostComponent(
      * Invoked when splash finish data sync
      */
     private fun onSplashFinished() {
-        router.replaceCurrent(Config.Main)
+        navigation.replaceCurrent(Config.Main)
     }
 }
