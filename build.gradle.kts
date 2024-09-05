@@ -3,37 +3,37 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.7.10"
-    kotlin("jvm") version kotlinVersion
-    kotlin("kapt") version kotlinVersion
-    id("org.jetbrains.compose") version "1.2.0-alpha01-dev764"
+    kotlin("jvm")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("org.jetbrains.compose")
+    id("com.google.devtools.ksp")
 }
 
 group = "com.myapp"
 version = "1.0.0"
 
 repositories {
-    jcenter()
     mavenCentral()
     google()
     maven { url = uri("https://jitpack.io") }
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
 }
 
-val daggerVersion by extra("2.39.1")
+val daggerVersion by extra("2.52")
 
 dependencies {
-    implementation(compose.desktop.currentOs)
+    implementation(compose.desktop.macos_arm64  )
 
     // Module dependencies
     implementation(project(":data"))
 
     // Dagger : A fast dependency injector for Android and Java.
-    kapt("com.google.dagger:dagger-compiler:$daggerVersion")
-    kaptTest("com.google.dagger:dagger-compiler:$daggerVersion")
+
+    ksp("com.google.dagger:dagger-compiler:$daggerVersion")
+    kspTest("com.google.dagger:dagger-compiler:$daggerVersion")
 
     // Cyclone : https://github.com/theapache64/cyclone
-    implementation("com.theapache64:cyclone:1.0.0-alpha01")
+    implementation("com.github.theapache64:cyclone:1.0.0-alpha02")
 
     // Decompose : Decompose
     val decomposeVersion = "0.2.5"
@@ -65,10 +65,6 @@ dependencies {
 
     // JUnit : JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
     testImplementation(kotlin("test-junit5"))
-}
-
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "11"
 }
 
 compose.desktop {
