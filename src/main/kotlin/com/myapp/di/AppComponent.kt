@@ -1,7 +1,7 @@
 package com.myapp.di
 
-import com.myapp.ui.feature.main.MainScreenComponent
-import com.myapp.ui.feature.splash.SplashScreenComponent
+import com.myapp.ui.feature.main.MainScreen
+import com.myapp.ui.feature.splash.SplashScreen
 import dagger.Component
 import javax.inject.Singleton
 
@@ -12,6 +12,6 @@ import javax.inject.Singleton
     ]
 )
 interface AppComponent {
-    fun inject(splashScreenComponent: SplashScreenComponent)
-    fun inject(mainScreenComponent: MainScreenComponent)
+    fun inject(splashScreen: SplashScreen)
+    fun inject(mainScreen: MainScreen)
 }

@@ -1,19 +1,16 @@
 package com.myapp.ui.feature
 
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
-import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import com.arkivanov.decompose.extensions.compose.jetbrains.rememberRootComponent
+import cafe.adriel.voyager.navigator.Navigator
 import com.myapp.App
-import com.myapp.ui.navigation.NavHostComponent
+import com.myapp.di.AppComponent
+import com.myapp.ui.feature.splash.SplashScreen
 import com.myapp.ui.value.MyAppTheme
 import com.theapache64.cyclone.core.Activity
 import com.theapache64.cyclone.core.Intent
-import java.awt.image.BufferedImage
-import javax.imageio.ImageIO
 import androidx.compose.ui.window.application as setContent
 
 /**
@@ -31,6 +28,10 @@ class MainActivity : Activity() {
     override fun onCreate() {
         super.onCreate()
 
+        val appComponent: AppComponent = DaggerAppComponent
+            .create()
+
+
         setContent {
             Window(
                 onCloseRequest = ::exitApplication,
@@ -39,9 +40,14 @@ class MainActivity : Activity() {
                 state = rememberWindowState(width = 1024.dp, height = 600.dp),
             ) {
                 MyAppTheme {
-                    // Igniting navigation
-                    rememberRootComponent(factory = ::NavHostComponent)
-                        .render()
+                    Navigator(
+                        SplashScreen(
+                            appComponent = appComponent,
+                            onSplashFinished = {
+
+                            }
+                        )
+                    )
                 }
             }
 

@@ -36,10 +36,12 @@ dependencies {
     implementation("com.github.theapache64:cyclone:1.0.0-alpha02")
 
     // Decompose : Decompose
-    val decomposeVersion = "0.2.5"
-    implementation("com.arkivanov.decompose:decompose-jvm:$decomposeVersion")
-    implementation("com.arkivanov.decompose:extensions-compose-jetbrains-jvm:$decomposeVersion")
+    val voyagerVersion = "1.1.0-beta02"
+    // Navigator
+    implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
 
+    // Screen Model
+    implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
 
     /**
      * Testing Dependencies
