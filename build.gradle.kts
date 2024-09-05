@@ -28,7 +28,7 @@ dependencies {
     implementation(project(":data"))
 
     // Dagger : A fast dependency injector for Android and Java.
-
+    implementation("com.google.dagger:dagger:$daggerVersion")
     ksp("com.google.dagger:dagger-compiler:$daggerVersion")
     kspTest("com.google.dagger:dagger-compiler:$daggerVersion")
 
@@ -39,9 +39,6 @@ dependencies {
     val voyagerVersion = "1.1.0-beta02"
     // Navigator
     implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-
-    // Screen Model
-    implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
 
     /**
      * Testing Dependencies

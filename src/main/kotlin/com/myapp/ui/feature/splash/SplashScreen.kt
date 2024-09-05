@@ -10,12 +10,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import com.myapp.di.AppComponent
 import javax.inject.Inject
 
 class SplashScreen @Inject constructor(
     appComponent: AppComponent,
-    private val onSplashFinished : () -> Unit
+    private val onSplashFinished: (navigator: Navigator) -> Unit
 ) : Screen {
 
     @Inject
@@ -34,10 +37,10 @@ class SplashScreen @Inject constructor(
         }
 
         val isSplashFinished by splashViewModel.isSplashFinished.collectAsState()
-
-        LaunchedEffect(isSplashFinished){
-            if(isSplashFinished){
-                onSplashFinished()
+        val navigator = LocalNavigator.currentOrThrow
+        LaunchedEffect(isSplashFinished, navigator) {
+            if (isSplashFinished) {
+                onSplashFinished(navigator)
             }
         }
 

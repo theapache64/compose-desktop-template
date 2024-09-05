@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm")
-    kotlin("kapt")
+    id("com.google.devtools.ksp")
 }
 
 group = "com.myapp"
@@ -15,8 +15,8 @@ dependencies {
 
     // Dagger
     val daggerVersion: String by rootProject.extra
-    api("com.google.dagger:dagger:$daggerVersion")
-    kapt("com.google.dagger:dagger-compiler:$daggerVersion")
+    implementation("com.google.dagger:dagger:$daggerVersion")
+    ksp("com.google.dagger:dagger-compiler:$daggerVersion")
 
     // Arbor : Like Timber, just different.
     api("com.ToxicBakery.logging:arbor-jvm:1.34.109")

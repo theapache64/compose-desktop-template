@@ -7,6 +7,8 @@ import androidx.compose.ui.window.rememberWindowState
 import cafe.adriel.voyager.navigator.Navigator
 import com.myapp.App
 import com.myapp.di.AppComponent
+import com.myapp.di.DaggerAppComponent
+import com.myapp.ui.feature.main.MainScreen
 import com.myapp.ui.feature.splash.SplashScreen
 import com.myapp.ui.value.MyAppTheme
 import com.theapache64.cyclone.core.Activity
@@ -27,10 +29,7 @@ class MainActivity : Activity() {
 
     override fun onCreate() {
         super.onCreate()
-
-        val appComponent: AppComponent = DaggerAppComponent
-            .create()
-
+        val appComponent: AppComponent = DaggerAppComponent.create()
 
         setContent {
             Window(
@@ -41,10 +40,10 @@ class MainActivity : Activity() {
             ) {
                 MyAppTheme {
                     Navigator(
-                        SplashScreen(
+                        screen = SplashScreen(
                             appComponent = appComponent,
-                            onSplashFinished = {
-
+                            onSplashFinished = { navigator ->
+                                navigator.push(MainScreen(appComponent))
                             }
                         )
                     )
