@@ -19,5 +19,5 @@ dependencies {
     ksp("com.google.dagger:dagger-compiler:$daggerVersion")
 
     // Arbor : Like Timber, just different.
-    api("com.ToxicBakery.logging:arbor-jvm:1.34.109")
+    api("com.ToxicBakery.logging:arbor-jvm:1.35.72")
 }

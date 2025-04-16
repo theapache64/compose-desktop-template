@@ -20,7 +20,7 @@ class SplashViewModelTest {
 
     private val splashViewModel by lazy {
         SplashViewModel(mock()).apply {
-            init(coroutineRule)
+            init(coroutineRule.scope)
         }
     }
 
