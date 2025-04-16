@@ -3,7 +3,6 @@ package com.myapp.ui.feature.splash
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import cafe.adriel.voyager.navigator.Navigator
-import com.myapp.data.repo.MyRepo
 import com.myapp.di.AppComponent
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doAnswer
@@ -30,7 +29,7 @@ class SplashScreenTest {
     @Test
     fun `Logo displayed`() {
         composeRule.setContent {
-            SplashScreen(mock())
+            Navigator(SplashScreen(mockAppComponent, {}))
         }
 
         composeRule.onNodeWithContentDescription("Logo").assertExists()
